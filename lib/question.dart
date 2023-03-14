@@ -29,6 +29,6 @@ class question extends StatelessWidget {
   @override
   Widget build(BuildContext context) 
   {
-    return Text(questiontext,sty);
+    return Text(questiontext,style:TextStyle());
   }
 }
