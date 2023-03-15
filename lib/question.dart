@@ -29,6 +29,17 @@ class question extends StatelessWidget {
   @override
   Widget build(BuildContext context) 
   {
-    return Text(questiontext,style:TextStyle());
+    return Container
+    (
+      width:double.infinity,
+      margin:EdgeInsets.all(10),
+    child:
+    Text
+    (
+      questiontext,
+      style:TextStyle(fontSize:19),
+      textAlign: TextAlign.center,
+      )
+    );
   }
 }
