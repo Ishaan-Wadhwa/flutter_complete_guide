@@ -70,6 +70,7 @@
 
 import 'package:flutter/material.dart';
 import './question.dart';
+import './answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -84,7 +85,7 @@ class _MyAppState extends State<MyApp> {
   var _questionindex = 0;
   void answerquestion() {
     setState(() {
-      ++_questionindex;
+      _questionindex++;
     });
     print('answer chosen');
   }
@@ -92,7 +93,7 @@ class _MyAppState extends State<MyApp> {
   var questions = [
     'what is your name?',
     'what is your favourite color?',
-    'what is your favourite food'
+    'what is your favourite food?'
   ];
 
   @override
@@ -102,15 +103,31 @@ class _MyAppState extends State<MyApp> {
             appBar: AppBar(title: Text('My first app')),
             body: Column(children: [
               question(/*'the question'*/ questions[_questionindex]),
-              ElevatedButton(
-                  child: Text('option 1'),
-                  onPressed: answerquestion /*() => print('answer 1 chosen')*/),
-              ElevatedButton(
-                  child: Text('option 2'),
-                  onPressed: answerquestion), //() => print('answer 2 chosen')),
-              ElevatedButton(
-                  child: Text('option 3'),
-                  onPressed: answerquestion) //() => print('answer 3 chosen'))
+              answer(answerquestion),
+              // ElevatedButton(
+              //     style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(Colors.blue),
+              //       foregroundColor: MaterialStateProperty.all(Colors.white),
+              //     ),
+              //     child: Text('option 1'),
+              //     onPressed: answerquestion /*() => print('answer 1 chosen')*/
+              //     ),
+              answer(answerquestion),
+              // ElevatedButton(
+              //     style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(Colors.blue),
+              //       foregroundColor: MaterialStateProperty.all(Colors.white),
+              //     ),
+              //     child: Text('option 2'),
+            //     onPressed: answerquestion), //() => print('answer 2 chosen')),
+            answer(answerquestion),
+              // ElevatedButton(
+              //     style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(Colors.blue),
+              //       foregroundColor: MaterialStateProperty.all(Colors.white),
+              //     ),
+              //     child: Text('option 3'),
+              //     onPressed: answerquestion) //() => print('answer 3 chosen'))
             ])));
   }
 }

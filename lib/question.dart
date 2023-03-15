@@ -20,6 +20,13 @@
 //         );
 //   }
 // }
+
+//multiple constructor in dart
+// //classname.constructor name()
+// {
+
+// }
+
 import 'package:flutter/material.dart';
 
 class question extends StatelessWidget {
