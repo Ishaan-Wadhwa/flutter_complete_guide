@@ -68,151 +68,151 @@
 // //   }
 // // }
 
-// import 'package:flutter/material.dart';
-// import './question.dart';
-// import './solution.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatefulWidget {
-//   @override
-//   State<MyApp> createState() => _MyAppState();
-// }
-
-// class _MyAppState extends State<MyApp> {
-//   var _questionindex = 0;
-
-//   void _answerquestion() {
-//     setState(() {
-//       _questionindex++;
-//     });
-//     print('answer chosen');
-//   }
-
-//   var questions = /*square brackets are used to initialise a map*/ [
-//     {
-//       'questionText': 'what is your color?',
-//       'answers': ['black', 'red', 'yellow', 'pink']
-//     },
-//     {
-//       'questionText': 'what is your favourite animal?',
-//       'answer': ['Rabbit', 'dear', 'elephant', 'lion']
-//     },
-//     {
-//       'questionText': 'what is your favourite food?',
-//       'answers': ['pizza', 'burger', 'fries', 'noodles']
-//     }
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         home: Scaffold(
-//             appBar: AppBar(title: Text('My first app')),
-//             body: Column(children: [
-//               Question(
-//                 /*'the question'*/ questions[_questionindex][
-//                     'questionText'], //question dynamically change using map indexing
-//                 (questions[_questionindex]['answers'] as List<String>)
-//                     .map((answer) {
-//                   return Answer(_answerquestion, answer);
-//                 }).toList(),
-//               ),
-
-//               Answer(_answerquestion),
-//               // ElevatedButton(
-//               //     style: ButtonStyle(
-//               //       backgroundColor: MaterialStateProperty.all(Colors.blue),
-//               //       foregroundColor: MaterialStateProperty.all(Colors.white),
-//               //     ),
-//               //     child: Text('option 1'),
-//               //     onPressed: answerquestion /*() => print('answer 1 chosen')*/
-//               //     ),
-//               Answer(_answerquestion),
-//               // ElevatedButton(
-//               //     style: ButtonStyle(
-//               //       backgroundColor: MaterialStateProperty.all(Colors.blue),
-//               //       foregroundColor: MaterialStateProperty.all(Colors.white),
-//               //     ),
-//               //     child: Text('option 2'),
-//               //     onPressed: answerquestion), //() => print('answer 2 chosen')),
-//               Answer(_answerquestion),
-//               // ElevatedButton(
-//               //     style: ButtonStyle(
-//               //       backgroundColor: MaterialStateProperty.all(Colors.blue),
-//               //       foregroundColor: MaterialStateProperty.all(Colors.white),
-//               //     ),
-//               //     child: Text('option 3'),
-//               //     onPressed: answerquestion) //() => print('answer 3 chosen'))
-//             ])));
-//   }
-// }
 import 'package:flutter/material.dart';
-
 import './question.dart';
 import './solution.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _MyAppState();
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
+  var _questionindex = 0;
 
-  void _answerQuestion() {
+  void _answerquestion() {
     setState(() {
-      _questionIndex = _questionIndex + 1;
+      _questionindex++;
     });
-    print(_questionIndex);
+    print('answer chosen');
   }
+
+  var questions = /*square brackets are used to initialise a map*/ [
+    {
+      'questionText': 'what is your color?',
+      'answers': ['black', 'red', 'yellow', 'pink']
+    },
+    {
+      'questionText': 'what is your favourite animal?',
+      'answer': ['Rabbit', 'dear', 'elephant', 'lion']
+    },
+    {
+      'questionText': 'what is your favourite food?',
+      'answers': ['pizza', 'burger', 'fries', 'noodles']
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': 'What\'s your favorite color?',
-        'answers': ['Black', 'Red', 'Green', 'White'],
-      },
-      {
-        'questionText': 'What\'s your favorite animal?',
-        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
-      },
-      {
-        'questionText': 'Who\'s your favorite instructor?',
-        'answers': ['Max', 'Max', 'Max', 'Max'],
-      },
-    ];
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My First App'),
-        ),
-        body: Column(
-          children: [
-            Question
-            (
-              questions[_questionIndex]['questionText'],
-            ),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList()
-          ],
-        ),
-      ),
-    );
+        home: Scaffold(
+            appBar: AppBar(title: Text('My first app')),
+            body: Column(children: [
+              Question(
+                /*'the question'*/ questions[_questionindex][
+                    'questionText'], //question dynamically change using map indexing
+                (questions[_questionindex]['answers'] as List<String>)
+                    .map((answer) {
+                  return Answer(_answerquestion, answer);
+                }).toList(),
+              ),
+
+              
+              // ElevatedButton(
+              //     style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(Colors.blue),
+              //       foregroundColor: MaterialStateProperty.all(Colors.white),
+              //     ),
+              //     child: Text('option 1'),
+              //     onPressed: answerquestion /*() => print('answer 1 chosen')*/
+              //     ),
+              
+              // ElevatedButton(
+              //     style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(Colors.blue),
+              //       foregroundColor: MaterialStateProperty.all(Colors.white),
+              //     ),
+              //     child: Text('option 2'),
+              //     onPressed: answerquestion), //() => print('answer 2 chosen')),
+             
+              // ElevatedButton(
+              //     style: ButtonStyle(
+              //       backgroundColor: MaterialStateProperty.all(Colors.blue),
+              //       foregroundColor: MaterialStateProperty.all(Colors.white),
+              //     ),
+              //     child: Text('option 3'),
+              //     onPressed: answerquestion) //() => print('answer 3 chosen'))
+            ])));
   }
 }
+// import 'package:flutter/material.dart';
+
+// import './question.dart';
+// import './solution.dart';
+
+// // void main() {
+// //   runApp(MyApp());
+// // }
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatefulWidget {
+//   @override
+//   State<StatefulWidget> createState() {
+//     // TODO: implement createState
+//     return _MyAppState();
+//   }
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   var _questionIndex = 0;
+
+//   void _answerQuestion() {
+//     setState(() {
+//       _questionIndex = _questionIndex + 1;
+//     });
+//     print(_questionIndex);
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     var questions = [
+//       {
+//         'questionText': 'What\'s your favorite color?',
+//         'answers': ['Black', 'Red', 'Green', 'White'],
+//       },
+//       {
+//         'questionText': 'What\'s your favorite animal?',
+//         'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+//       },
+//       {
+//         'questionText': 'Who\'s your favorite instructor?',
+//         'answers': ['Max', 'Max', 'Max', 'Max'],
+//       },
+//     ];
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('My First App'),
+//         ),
+//         body: Column(
+//           children: [
+//             Question
+//             (
+//               questions[_questionIndex]['questionText'],
+//             ),
+//             ...(questions[_questionIndex]['answers'] as List<String>)
+//                 .map((answer) {
+//               return Answer(_answerQuestion, answer);
+//             }).toList()
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
