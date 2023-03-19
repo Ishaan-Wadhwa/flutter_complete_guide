@@ -28,11 +28,11 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/solution.dart';
+import 'package:flutter_complete_guide/Answer.dart';
 
 class Question extends StatelessWidget {
   var questiontext;
-  Question(this.questiontext, List<Answer> list);
+  Question(this.questiontext);
 
   @override
   Widget build(BuildContext context) 

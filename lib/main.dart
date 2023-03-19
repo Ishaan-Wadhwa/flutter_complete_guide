@@ -68,58 +68,69 @@
 // //   }
 // // }
 
+// The static keyword is used for a class-level variable and method that is the same for every instance of a class, this means if a data member is static, it can be accessed without creating an object.
+
 import 'package:flutter/material.dart';
 import './question.dart';
-import './solution.dart';
+import './Answer.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<StatefulWidget> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionindex = 0;
+  var _questionIndex = 0;
 
   void _answerquestion() {
     setState(() {
-      _questionindex++;
+      _questionIndex++;
+      // _questionIndex = _questionIndex + 1;
     });
     print('answer chosen');
   }
 
-  var questions = /*square brackets are used to initialise a map*/ [
-    {
-      'questionText': 'what is your color?',
-      'answers': ['black', 'red', 'yellow', 'pink']
-    },
-    {
-      'questionText': 'what is your favourite animal?',
-      'answer': ['Rabbit', 'dear', 'elephant', 'lion']
-    },
-    {
-      'questionText': 'what is your favourite food?',
-      'answers': ['pizza', 'burger', 'fries', 'noodles']
-    }
-  ];
-
   @override
   Widget build(BuildContext context) {
+    var questions = /*square brackets are used to initialise a map*/ [
+      {
+        'questionText': 'what is your color?',
+        'answers': ['black', 'red', 'yellow', 'pink']
+      },
+      {
+        'questionText': 'what is your favourite animal?',
+        'answer': ['Rabbit', 'dear', 'elephant', 'lion']
+      },
+      {
+        'questionText': 'what is your favourite food?',
+        'answers': ['pizza', 'burger', 'fries', 'noodles']
+      }, //if never want to change the value of a variable then make it const.
+      //const variable must be initialised.
+      //if you know that the value of the variable will not change once initialised then make it final.
+    ];
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(title: Text('My first app')),
-            body: Column(children: [
-              Question(
-                /*'the question'*/ questions[_questionindex][
-                    'questionText'], //question dynamically change using map indexing
-                (questions[_questionindex]['answers'] as List<String>)
-                    .map((answer) {
-                  return Answer(_answerquestion, answer);
-                }).toList(),
-              ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My first app'),
+        ),
+        body: Column(
+          children: [
+            Question(
+              questions[_questionIndex]['questionText'],
+            ),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerquestion, answer);
+            }).toList()
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
               
               // ElevatedButton(
@@ -146,9 +157,6 @@ class _MyAppState extends State<MyApp> {
               //     ),
               //     child: Text('option 3'),
               //     onPressed: answerquestion) //() => print('answer 3 chosen'))
-            ])));
-  }
-}
 // import 'package:flutter/material.dart';
 
 // import './question.dart';
