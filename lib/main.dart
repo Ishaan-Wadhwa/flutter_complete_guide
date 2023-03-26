@@ -83,54 +83,56 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
-
+  String answer = "";
+  var questions = /*square brackets are used to initialise a map*/ [
+    {
+      'questionText': 'what is your color?',
+      'answers': ['black', 'red', 'yellow', 'pink']
+    },
+    {
+      'questionText': 'what is your favourite animal?',
+      'answer': ['Rabbit', 'dear', 'elephant', 'lion']
+    },
+    {
+      'questionText': 'what is your favourite food?',
+      'answers': ['pizza', 'burger', 'fries', 'noodles']
+    }, //if never want to change the value of a variable then make it const.
+    //const variable must be initialised.
+    //if you know that the value of the variable will not change once initialised then make it final.
+  ];
   void _answerquestion() {
     setState(() {
       _questionIndex++;
       // _questionIndex = _questionIndex + 1;
     });
-    print('answer chosen');
+    if (_questionIndex <= questions.length) {
+      print('some question are left');
+    } else {
+      print('all questions are answered.');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var questions = /*square brackets are used to initialise a map*/ [
-      {
-        'questionText': 'what is your color?',
-        'answers': ['black', 'red', 'yellow', 'pink']
-      },
-      {
-        'questionText': 'what is your favourite animal?',
-        'answer': ['Rabbit', 'dear', 'elephant', 'lion']
-      },
-      {
-        'questionText': 'what is your favourite food?',
-        'answers': ['pizza', 'burger', 'fries', 'noodles']
-      }, //if never want to change the value of a variable then make it const.
-      //const variable must be initialised.
-      //if you know that the value of the variable will not change once initialised then make it final.
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('My first app'),
         ),
-        body: Column(
-          children: [
-            Question(
-              questions[_questionIndex]['questionText'],
-            ),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerquestion, answer);
-            }).toList()
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(
+                    questions[_questionIndex]['questionText'],
+                  ),
+                  ...(questions[_questionIndex]['answers'] as List<String>)
+                      .map((answer) {
+                    return Answer(_answerquestion, answer);
+                  }).toList()
+                ],
+              )
+            : Center(child: Text('you did it')),
       ),
     );
   }
 }
-
-
-              
-    
