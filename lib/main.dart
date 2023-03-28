@@ -76,15 +76,18 @@ import './Answer.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatefulWidget 
+{
   @override
   State<StatefulWidget> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
-  String answer = "";
-  var questions = /*square brackets are used to initialise a map*/ [
+int _questionIndex = 0;
+
+class _MyAppState extends State<MyApp> 
+{
+  // var answer;
+  final questions = /*square brackets are used to initialise a map*/ const [
     {
       'questionText': 'what is your color?',
       'answers': ['black', 'red', 'yellow', 'pink']
@@ -101,14 +104,18 @@ class _MyAppState extends State<MyApp> {
     //if you know that the value of the variable will not change once initialised then make it final.
   ];
   void _answerquestion() {
-    setState(() {
-      _questionIndex++;
+    setState(() 
+    {
+      _questionIndex = _questionIndex + 1;
       // _questionIndex = _questionIndex + 1;
     });
-    if (_questionIndex <= questions.length) {
-      print('some question are left');
-    } else {
-      print('all questions are answered.');
+    if (_questionIndex < questions.length) 
+    {
+      print('some are left');
+    } 
+    else 
+    {
+      print('all are answered');
     }
   }
 
@@ -123,12 +130,14 @@ class _MyAppState extends State<MyApp> {
             ? Column(
                 children: [
                   Question(
-                    questions[_questionIndex]['questionText'],
+                    questions[_questionIndex]['questionText'] as String,
                   ),
                   ...(questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) {
+                      .map((answer) 
+                      {
                     return Answer(_answerquestion, answer);
-                  }).toList()
+                      }
+                  ).toList()
                 ],
               )
             : Center(child: Text('you did it')),

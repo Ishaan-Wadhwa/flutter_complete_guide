@@ -30,8 +30,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/Answer.dart';
 
-class Question extends StatelessWidget {
-  var questiontext;
+class Question extends StatelessWidget 
+{
+  final String questiontext;
   Question(this.questiontext);
 
   @override
