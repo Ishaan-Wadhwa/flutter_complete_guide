@@ -30,25 +30,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/answer_file.dart';
 
-class Question extends StatelessWidget 
-{
+class Question extends StatelessWidget {
   final String questiontext;
   Question(this.questiontext);
 
   @override
-  Widget build(BuildContext context)   
-  {
-    return Container
-    (
-      width:double.infinity,
-      margin:EdgeInsets.all(10),
-    child:
-    Text
-    (
-      questiontext,
-      style:TextStyle(fontSize:19),
-      textAlign: TextAlign.center,
-      )
-    );
+  Widget build(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        margin: EdgeInsets.all(10),
+        child: Text(
+          questiontext,
+          style: TextStyle(fontSize: 19),
+          textAlign: TextAlign.center,
+        ));
   }
 }
